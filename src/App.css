@@ -1,5 +1,16 @@
 .App {
   text-align: center;
+  font-size: 3rem;
+  color: white;
+  background-color: #151531;
+}
+.home{
+  text-align: center;
+  margin-top: 2rem;
+  list-style-type: none;
+}
+#esat{
+    list-style-type: none;
 }
 
 .App-logo {

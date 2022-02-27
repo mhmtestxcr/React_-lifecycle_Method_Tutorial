@@ -1,25 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import React, { Component } from "react";
+import Header from "./components/Header.js";
+import Home from "./components/Home";
+class App extends Component {
+  state = {
+    homeMounted: true,
+  };
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  onChangeMounted = () => {
+    this.setState({
+      homeMounted: !this.state.homeMounted,
+    });
+  };
+
+  render() {
+    const user = {
+      name: "Yasir",
+      hobbies: ["Futbol", "reading", "bikeng"],
+    };
+
+    let homeCmp = "";
+    if (this.state.homeMounted) {
+      homeCmp = <Home name={"Enes"} age={27} user={user} />;
+    }
+
+    return (
+      <div>
+        <Header />
+        {homeCmp}
+        <button onClick={()=>this.onChangeMounted()} >Unmount Component</button>
+      </div>
+    );
+  }
 }
 
 export default App;
